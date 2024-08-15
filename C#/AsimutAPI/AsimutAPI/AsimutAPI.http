@@ -1,0 +1,6 @@
+@AsimutAPI_HostAddress = http://localhost:5069
+
+GET {{AsimutAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

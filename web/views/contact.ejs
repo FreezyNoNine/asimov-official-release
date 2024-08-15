@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asimov</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Favicons Fortnite -->
+    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Fichier CSS Vendor -->
+    <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- CSS Main -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body style="background-color: rgb(224, 224, 224);">
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top" style="background-color: white;">
+        <div class="container d-flex align-items-center">
+
+            <h1 class="logo me-auto"><a href="/accueil"><span>Asim</span>ov</a></h1>
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a href="/accueil">Accueil</a></li>
+
+                    <li class="dropdown"><a href="#"><span>Stage</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="/statusStage" class="active">Status stage</a></li>
+                            <li><a href="/convStage">Remplir convention stage</a></li>
+                            <li><a href="testimonials.html">Déposer attestation de stage</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="/eleve">Vos Notes</a></li>
+                    <li><a href="pricing.html">Professeur référent</a></li>
+                    <li><a href="blog.html">Elève référent</a></li>
+                    <li><a href="/contact" class="active">Contact</a></li>
+                    <li><a href="/savoir_plus">En savoir plus</a></li>
+
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+
+    <div id="contact" style="align-items: center; justify-content: center; margin-top: 10rem;">
+        <br><br>
+        <div id="footerwrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h3 style="margin-top: 20px;">Adresse</h3>
+                        <p>
+                            24 rue Asimov<br> Grenoble<br> 38000
+                            <br> FRANCE
+                        </p>
+                        <br>
+                        <br>
+                        <h3>Contact</h3>
+                        <p style="text-decoration: none; color: black;">
+                            wis21980404@gmail.com <br>
+                            06 05 04 03 02
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 style="margin-top: 20px;">Contactez-nous !</h3>
+                        <br>
+                        <form method="post" class="contact-form php-mail-form" action="../assets/php/Mail.php">
+                            <div class="form-group">
+                                <label>Nom</label>
+                                <textarea class="form-control" rows="1"
+                                    style="min-height: 1em; border-color: #00000056;" name="name" id="name"
+                                    placeholder="Nom"></textarea><br>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <textarea class="form-control" rows="1"
+                                    style="min-height: 1em; border-color: #00000056;" name="email" id="email"
+                                    placeholder="Email"></textarea><br>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea style="border-color: #00000056;" name="message" class="form-control"
+                                    id="message" placeholder="Message"></textarea><br>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" title="Captcha" name="res" placeholder="5 + 2 = " maxlength="12"
+                                    size="12" style="color: black;">
+                            </div><br>
+                            <div class="form-send">
+                                <button type="submit" class="btn btn-large"
+                                    style="margin-bottom: 100px; background-color: aqua;">Envoyer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

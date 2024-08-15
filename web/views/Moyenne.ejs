@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Page accueil</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons Fortnite -->
+    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Fichier CSS Vendor -->
+    <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- CSS Main -->
+    <link href="../assets/css/moyenne.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+
+            <h1 class="logo me-auto"><a href="/accueil"><span>Asim</span>ov</a></h1>
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <% if (user) { %>
+                        <form action="/deconnexion" method="POST">
+                            <button type="submit">Déconnexion</button>
+                        </form>
+                        <% } else { %>
+                            <a href="/connexion">Connexion</a>
+                            <% } %>
+
+                                <li class="dropdown"><a href="#"><span>Stage</span> <i
+                                            class="bi bi-chevron-down"></i></a>
+                                    <ul>
+                                        <li><a href="/statusStage" class="active">Status stage</a></li>
+                                        <li><a href="/convStage">Remplir convention stage</a></li>
+                                        <li><a href="testimonials.html">Déposer attestation de stage</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="/eleve" class="active">Vos Notes</a></li>
+                                <li><a href="pricing.html">Professeur référent</a></li>
+                                <li><a href="blog.html">Elève référent</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                                <li><a href="/savoir_plus">En savoir plus</a></li>
+
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><br><br><br>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+
+    <% if (user && (user.roles.includes('secretaire') || user.roles.includes('proviseur'))) { %>
+
+        <form action="/gererMoyenne" method="post" class="insertionMoyenne" onsubmit="return validateForm()">
+            <span>Choisir un élève : </span>
+            <select id="choixEleve" name="choixEleve">
+                <% eleveUsers.forEach(function(user) { %>
+                    <option value="<%= user.id %>">
+                        <%= user.id %> - <%= user.nom %>
+                                <%= user.prenom %>
+                    </option>
+                    <% }); %>
+            </select>
+            <br><br>
+            <span>Semestre : </span>
+            <select id="choixSemestre" name="choixSemestre">
+                <option value="moyenneSemestre1">Semestre 1</option>
+                <option value="moyenneSemestre2">Semestre 2</option>
+            </select>
+            <br><br>
+            <span>La moyenne générale : </span><input type="number" name="moyenne" min="0" max="20" required>
+            <br><br>
+            <button type="submit">Valider</button>
+        </form><br><br>
+
+        <% } %>
+
+            <!-- Tableau pour afficher les moyennes -->
+            <table id="moyenneTable" style="margin-top: 3rem;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Moyenne Semestre 1</th>
+                        <th>Moyenne Semestre 2</th>
+                        <th>ID Classe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% moyennes.forEach(function(moyenne) { %>
+                        <tr>
+                            <td>
+                                <%= moyenne.id %>
+                            </td>
+                            <td>
+                                <%= moyenne.nom %>
+                            </td>
+                            <td>
+                                <%= moyenne.prenom %>
+                            </td>
+                            <td>
+                                <%= moyenne.moyenneSemestre1 %>
+                            </td>
+                            <td>
+                                <%= moyenne.moyenneSemestre2 %>
+                            </td>
+                            <td>
+                                <%= moyenne.id_classe %>
+                            </td>
+                            <!-- Dans votre vue EJS, par exemple moyenne.ejs -->
+                            <% if (user && user.roles.includes('proviseur')) { %>
+                                <!-- Affichez ici le bouton "Supprimer" pour le proviseur -->
+                                <td>
+                                    <form action="/supprimerMoyennesEleve" method="post">
+                                        <input type="hidden" name="idEleve" value="<%= moyenne.id %>">
+                                        <button type="submit">Supprimer</button>
+                                    </form>
+                                </td>
+                                <% } %>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+
+</body>
+
+<script>
+    function validateForm() {
+        // Récupérer les valeurs saisies par l'utilisateur
+        var choixEleve = document.getElementById("choixEleve").value;
+        var choixSemestre = document.getElementById("choixSemestre").value;
+        var moyenne = document.getElementById("moyenne").value;
+
+        // Valider les données
+        if (choixEleve === "" || choixSemestre === "" || moyenne === "") {
+            // Si l'un des champs est vide, afficher un message d'erreur
+            alert("Veuillez remplir tous les champs du formulaire.");
+            return false; // Empêcher l'envoi du formulaire
+        }
+
+        // Valider la moyenne saisie
+        if (moyenne < 0 || moyenne > 20) {
+            // Si la moyenne n'est pas dans la plage valide, afficher un message d'erreur
+            alert("La moyenne doit être comprise entre 0 et 20.");
+            return false; // Empêcher l'envoi du formulaire
+        }
+
+        // Si toutes les validations réussissent, retourner true pour soumettre le formulaire
+        return true;
+    }
+</script>
+
+</html>

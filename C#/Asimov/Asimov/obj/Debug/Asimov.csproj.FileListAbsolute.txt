@@ -1,0 +1,13 @@
+C:\wamp64\www\Asimov C#\Asimov\Asimov\bin\Debug\Asimov.exe.config
+C:\wamp64\www\Asimov C#\Asimov\Asimov\bin\Debug\Asimov.exe
+C:\wamp64\www\Asimov C#\Asimov\Asimov\bin\Debug\Asimov.pdb
+C:\wamp64\www\Asimov C#\Asimov\Asimov\bin\Debug\Newtonsoft.Json.dll
+C:\wamp64\www\Asimov C#\Asimov\Asimov\bin\Debug\Newtonsoft.Json.xml
+C:\wamp64\www\Asimov C#\Asimov\Asimov\obj\Debug\Asimov.csproj.AssemblyReference.cache
+C:\wamp64\www\Asimov C#\Asimov\Asimov\obj\Debug\Asimov.collegeAsimov.resources
+C:\wamp64\www\Asimov C#\Asimov\Asimov\obj\Debug\Asimov.Properties.Resources.resources
+C:\wamp64\www\Asimov C#\Asimov\Asimov\obj\Debug\Asimov.csproj.GenerateResource.cache
+C:\wamp64\www\Asimov C#\Asimov\Asimov\obj\Debug\Asimov.csproj.CoreCompileInputs.cache
+C:\wamp64\www\Asimov C#\Asimov\Asimov\obj\Debug\Asimov.csproj.CopyComplete
+C:\wamp64\www\Asimov C#\Asimov\Asimov\obj\Debug\Asimov.exe
+C:\wamp64\www\Asimov C#\Asimov\Asimov\obj\Debug\Asimov.pdb
